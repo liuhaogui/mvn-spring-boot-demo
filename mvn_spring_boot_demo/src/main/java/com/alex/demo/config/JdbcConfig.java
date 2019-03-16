@@ -2,6 +2,7 @@ package com.alex.demo.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -42,18 +43,29 @@ import javax.sql.DataSource;
 //    }
 //}
 
-//引入配置文件方式二：
+////引入配置文件方式二：
+//@Configuration
+//@EnableConfigurationProperties(jdbcProperties.class)
+//public class JdbcConfig {
+//
+//    @Bean
+//    public DataSource dataSource(jdbcProperties prop) {
+//        DruidDataSource dataSource = new DruidDataSource();
+//        dataSource.setUrl(prop.getUrl());
+//        dataSource.setDriverClassName(prop.getDriverClassName());
+//        dataSource.setUsername(prop.getUsername());
+//        dataSource.setPassword(prop.getPassword());
+//        return dataSource;
+//    }
+//}
+
+//引入配置文件方式三：
 @Configuration
-@EnableConfigurationProperties(jdbcProperties.class)
 public class JdbcConfig {
 
     @Bean
-    public DataSource dataSource(jdbcProperties prop) {
-        DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl(prop.getUrl());
-        dataSource.setDriverClassName(prop.getDriverClassName());
-        dataSource.setUsername(prop.getUsername());
-        dataSource.setPassword(prop.getPassword());
-        return dataSource;
+    @ConfigurationProperties(prefix = "jdbc")
+    public DataSource dataSource() {
+        return new DruidDataSource();
     }
 }

@@ -10,7 +10,9 @@ import org.springframework.stereotype.Component;
  * Time: 22:18
  **/
 //配置前缀 自动绑定配置文件前缀值
-@ConfigurationProperties(prefix = "jdbc")
+
+    //第三种注入方式；1、注释掉 当前类就不生效了
+//@ConfigurationProperties(prefix = "jdbc")
 
 //编译时自动生成get set方法
 @Data
