@@ -17,8 +17,8 @@ import javax.sql.DataSource;
  **/
 //引入配置文件方式一：
 //@Configuration
-    //spring 默认读取 application.properties 配置文件，这里默认java可以自定义文件读取配置
-//@PropertySource("classpath:application.properties")
+    //spring 默认读取 application.yaml 配置文件，这里默认java可以自定义文件读取配置
+//@PropertySource("classpath:application.yaml")
 //public class JdbcConfig {
 //
 ////    java注解方式引入配置

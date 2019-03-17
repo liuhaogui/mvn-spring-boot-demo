@@ -1,0 +1,30 @@
+jdbc:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://127.0.0.1:3306/spring_boot
+  username: root
+  password:
+server:
+  port: 8088
+  servlet:
+#    path: "*.do"
+    path: /
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.8.16.99:3306/temp_hgliu
+    username: devuser
+    password: "123qaz!@#"
+    hikari:
+      jdbc-url: jdbc:mysql://10.8.16.99:3306/temp_hgliu
+      username: devuser
+      password: "123qaz!@#"
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+#  mapper-locations: mapper/*.xml
+  type-aliases-package: com.alex.demo.pojo
+
+
+logging:
+  level:
+    com.alex.demo: debug
